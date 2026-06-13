@@ -38,17 +38,38 @@ const navItems = [
   { href: "#roadshow", label: "Roadshow" },
   { href: "#impact", label: "Impact" },
   { href: "#gallery", label: "Gallery" },
-  { href: "#invite", label: "Invite Us" },
+  { href: "#invite", label: "Invite" },
   { href: "#contact", label: "Contact" },
 ];
 
-const badges = ["Children's Ministry", "Kids Camps", "Creative Gospel Shows", "Teacher Training", "Family Events"];
+const badges = ["Churches", "Schools", "Kids Camps", "Sunday School", "Family Days"];
 
 const heroProof = [
   { label: "Fun", detail: "Joyful stage energy", icon: Smile, color: "bg-[#FFD93D]" },
   { label: "Safe & meaningful", detail: "Faith and character", icon: ShieldCheck, color: "bg-[#4ADE80]" },
   { label: "Invite-ready", detail: "Churches and schools", icon: HandHeart, color: "bg-[#F72525]" },
   { label: "Global vision", detail: "Cross-cultural vision", icon: Globe2, color: "bg-[#38BDF8]" },
+];
+
+const journeySteps = [
+  {
+    title: "Plan the Event",
+    text: "Share your church, school, camp, or family day needs.",
+    icon: CalendarHeart,
+    color: "bg-[#38BDF8]",
+  },
+  {
+    title: "Shape the Program",
+    text: "Choose a joyful mix of stories, games, gospel moments, and interaction.",
+    icon: BookHeart,
+    color: "bg-[#9B5DE5]",
+  },
+  {
+    title: "Create the Joy",
+    text: "Children experience laughter, faith, teamwork, and memorable character lessons.",
+    icon: Sparkles,
+    color: "bg-[#FFD93D]",
+  },
 ];
 
 const features = [
@@ -153,12 +174,12 @@ const stats = [
 ];
 
 const gallery = [
-  { label: "Kids Camp", colors: "from-[#FFD93D] via-[#FF66B3] to-[#F72525]", icon: Rainbow },
-  { label: "Stage Interaction", colors: "from-[#38BDF8] via-[#9B5DE5] to-[#FF66B3]", icon: Mic2 },
-  { label: "Creative Show", colors: "from-[#4ADE80] via-[#FFD93D] to-[#38BDF8]", icon: Sparkles },
-  { label: "Team Activity", colors: "from-[#F72525] via-[#FFD93D] to-[#4ADE80]", icon: Users },
-  { label: "Family Day", colors: "from-[#FF66B3] via-[#FFD93D] to-[#38BDF8]", icon: Heart },
-  { label: "Children's Worship", colors: "from-[#9B5DE5] via-[#38BDF8] to-[#4ADE80]", icon: Music2 },
+  { label: "Kids Camp", caption: "Theme days, games, and faith-filled group moments.", colors: "from-[#FFD93D] via-[#FF66B3] to-[#F72525]", icon: Rainbow },
+  { label: "Stage Interaction", caption: "Big reactions, clear messages, and guided participation.", colors: "from-[#38BDF8] via-[#9B5DE5] to-[#FF66B3]", icon: Mic2 },
+  { label: "Creative Show", caption: "Comedy, music, stories, movement, and visual surprises.", colors: "from-[#4ADE80] via-[#FFD93D] to-[#38BDF8]", icon: Sparkles },
+  { label: "Team Activity", caption: "Children learn kindness, confidence, and teamwork together.", colors: "from-[#F72525] via-[#FFD93D] to-[#4ADE80]", icon: Users },
+  { label: "Family Day", caption: "Warm programs that parents and children can enjoy together.", colors: "from-[#FF66B3] via-[#FFD93D] to-[#38BDF8]", icon: Heart },
+  { label: "Children's Worship", caption: "Joyful worship spaces that feel meaningful and child-friendly.", colors: "from-[#9B5DE5] via-[#38BDF8] to-[#4ADE80]", icon: Music2 },
 ];
 
 const testimonials = [
@@ -191,17 +212,17 @@ const whatsappUrl = "https://wa.me/601110589679";
 function LogoMark({ inverted = false }: { inverted?: boolean }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="relative grid size-16 shrink-0 place-items-center rounded-full border-[3px] border-[#F72525] bg-white ring-4 ring-white sticker-shadow">
+      <div className="relative grid size-14 shrink-0 place-items-center rounded-full border-[3px] border-[#F72525] bg-white ring-4 ring-white sticker-shadow">
         <Image
           src="/logo.png"
           alt="Uncle Sunday Logo"
-          width={64}
-          height={64}
+          width={56}
+          height={56}
           className="rounded-full object-contain"
         />
       </div>
       <div>
-        <p className={`font-display text-xl font-black leading-none ${inverted ? "text-white" : "text-[#1E293B]"}`}>
+        <p className={`font-display text-lg font-black leading-none ${inverted ? "text-white" : "text-[#1E293B]"}`}>
           Uncle Sunday
         </p>
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#F72525]">Happy Sunday</p>
@@ -220,12 +241,12 @@ function Header() {
           <LogoMark />
         </a>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-extrabold text-slate-700 transition hover:bg-[#FFF7E6] hover:text-[#F72525]"
+              className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-extrabold text-slate-700 transition hover:bg-[#FFF7E6] hover:text-[#F72525]"
             >
               {item.label}
             </a>
@@ -233,14 +254,14 @@ function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <div className="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-black text-slate-600">
+          <div className="whitespace-nowrap rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-black text-slate-600">
             EN / 中文 / BM
           </div>
           <a
             href="#invite"
-            className="rounded-full bg-[#F72525] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-500/20 transition hover:-translate-y-0.5 hover:bg-[#dc1d1d]"
+            className="whitespace-nowrap rounded-full bg-[#F72525] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-500/20 transition hover:-translate-y-0.5 hover:bg-[#dc1d1d]"
           >
-            Invite Uncle Sunday
+            Invite Now
           </a>
         </div>
 
@@ -302,7 +323,7 @@ export default function Home() {
     <main className="overflow-hidden">
       <Header />
 
-      <section id="home" className="relative min-h-screen pt-28">
+      <section id="home" className="relative min-h-screen pt-24">
         <div className="absolute inset-0 doodle-grid opacity-70" />
         <div className="absolute -left-28 top-32 size-48 rounded-full bg-[#FFD93D]/55 blur-2xl" />
         <div className="absolute -right-24 top-24 size-48 rounded-full bg-[#FF66B3]/25 blur-2xl" />
@@ -313,18 +334,18 @@ export default function Home() {
         <div className="float-doodle-delay absolute right-[8%] top-36 hidden rounded-3xl bg-white p-3 text-[#9B5DE5] sticker-shadow md:grid" style={{ "--doodle-rotate": "10deg" } as CSSProperties}>
           <Sparkles size={20} />
         </div>
-        <div className="section-shell relative grid items-center gap-12 py-10 lg:grid-cols-[1.02fr_0.98fr] lg:py-16">
+        <div className="section-shell relative grid items-center gap-12 py-8 lg:grid-cols-[1.02fr_0.98fr] lg:py-12">
           <div>
             <div className="comic-label mb-6 inline-flex -rotate-1 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black text-[#9B5DE5]">
               <Sparkles size={18} className="text-[#FFD93D]" />
-              Disney-level joy for children's ministry
+              Joyful gospel moments for children
             </div>
-            <h1 className="font-display text-5xl font-black leading-[0.96] text-slate-950 sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-5xl font-black leading-[0.96] text-slate-950 sm:text-6xl lg:text-6xl xl:text-7xl">
               Making Every Day a <span className="text-[#F72525]">Happy Sunday</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-700">
-              Creative children's ministry, joyful programs, and faith-filled experiences that feel fun, safe,
-              meaningful, and professionally invite-ready for churches, schools, families, and international partners.
+            <p className="mt-5 max-w-2xl text-xl leading-9 text-slate-700">
+              A colorful clown ministry experience with stories, games, laughter, and faith-filled messages for
+              churches, schools, families, and international partners.
             </p>
             <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {heroProof.map((item) => {
@@ -355,16 +376,16 @@ export default function Home() {
                 Explore Programs
               </a>
             </div>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               {badges.map((badge) => (
-                <span key={badge} className="rounded-full border-2 border-white bg-white px-4 py-2 text-sm font-black text-slate-700 sticker-shadow">
+                <span key={badge} className="rounded-full border border-white bg-white/90 px-4 py-2 text-sm font-black text-slate-700 sticker-shadow">
                   {badge}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="relative mx-auto grid aspect-square w-full max-w-[560px] place-items-center">
+          <div className="relative mx-auto grid aspect-square w-full max-w-[520px] place-items-center">
             <div className="rainbow-arc left-[12%] top-[2%] h-48 w-[76%]" />
             <div className="absolute inset-5 rounded-full border-[10px] border-[#F72525] bg-[#FFD93D]" />
             <div className="absolute inset-16 rounded-full bg-[#38BDF8]/35" />
@@ -412,7 +433,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="relative bg-white py-20">
+      <section className="relative -mt-10 pb-14">
+        <div className="section-shell">
+          <div className="soft-card grid gap-4 rounded-[2rem] p-4 md:grid-cols-3 md:p-5">
+            {journeySteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <article key={step.title} className="flex gap-4 rounded-[1.5rem] bg-[#FFF7E6] p-5">
+                  <div className={`grid size-12 shrink-0 place-items-center rounded-full border-4 border-white ${step.color} text-slate-950`}>
+                    <Icon size={23} />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-xl font-black leading-tight text-slate-950">{step.title}</h2>
+                    <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{step.text}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="relative bg-white section-pad">
         <div className="rainbow-band absolute inset-x-0 top-0 h-1.5" />
         <div className="section-shell">
           <SectionHeading
@@ -438,7 +480,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="programs" className="relative py-20">
+      <section id="programs" className="relative section-pad">
         <div className="absolute left-4 top-10 hidden rounded-full bg-[#FFD93D] p-3 text-slate-950 sticker-shadow lg:block">
           <Smile size={24} />
         </div>
@@ -451,12 +493,12 @@ export default function Home() {
             {programs.map((program) => {
               const Icon = program.icon;
               return (
-                <article key={program.title} className="group rounded-[1.75rem] border-2 border-white bg-white p-6 sticker-shadow transition hover:-translate-y-1 hover:border-[#F72525]/35">
+                <article key={program.title} className="group rounded-[1.75rem] border border-white bg-white/92 p-6 sticker-shadow transition hover:-translate-y-1 hover:border-[#F72525]/25">
                   <div className="mb-5 flex items-center justify-between">
                     <div className="grid size-14 place-items-center rounded-full border-4 border-[#FFF7E6] text-white" style={{ backgroundColor: program.accent }}>
                       <Icon size={28} />
                     </div>
-                    <span className="comic-label rotate-3 rounded-full bg-[#FFD93D] px-3 py-1 font-display text-xl font-black text-[#F72525] transition group-hover:-rotate-3">
+                    <span className="comic-label rotate-3 rounded-full bg-[#FFD93D] px-3 py-1 font-display text-base font-black text-[#F72525] transition group-hover:-rotate-3">
                       go
                     </span>
                   </div>
@@ -469,18 +511,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="roadshow" className="relative bg-white py-20">
+      <section id="roadshow" className="relative bg-white section-pad">
         <div className="rainbow-band absolute inset-x-0 top-0 h-2" />
         <div className="section-shell">
           <SectionHeading
             kicker="Roadshow"
             title="Follow the Uncle Button Tawau Road Show"
-            text="Upcoming Malaysia roadshow highlights from 16-24 June 2026. Fans can follow the public stops, school program, Sunday service, and family-friendly moments as the team moves through Tawau."
+            text="Upcoming Malaysia roadshow highlights from 16-24 June 2026. Fans can follow public stops, school programs, Sunday service, and family-friendly moments as the team moves through Tawau."
           />
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr]">
             <div className="grid gap-4">
               {roadshowStops.map((stop) => (
-                <article key={`${stop.date}-${stop.title}`} className="flex gap-4 rounded-[1.75rem] border-2 border-[#F72525]/15 bg-[#FFF7E6] p-5 sticker-shadow">
+                <article key={`${stop.date}-${stop.title}`} className="flex gap-4 rounded-[1.75rem] border border-[#F72525]/10 bg-[#FFF7E6] p-5 sticker-shadow">
                   <div className={`grid size-16 shrink-0 place-items-center rounded-full border-4 border-white ${stop.color} text-center font-display text-sm font-black leading-tight text-slate-950`}>
                     <CalendarHeart size={24} />
                   </div>
@@ -492,7 +534,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <div className="rounded-[2rem] border-[3px] border-[#F72525] bg-white p-4 sticker-shadow">
+            <div className="rounded-[2rem] border border-[#F72525]/20 bg-white p-4 sticker-shadow">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <p className="comic-label rounded-full bg-[#FFD93D] px-4 py-2 font-display text-lg font-black text-[#F72525]">
                   Full itinerary
@@ -513,7 +555,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="impact" className="bg-[#1E293B] py-20 text-white">
+      <section id="impact" className="bg-[#1E293B] section-pad text-white">
         <div className="section-shell">
           <SectionHeading
             kicker="Impact"
@@ -532,7 +574,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="bg-white py-20">
+      <section id="gallery" className="bg-white section-pad">
         <div className="section-shell">
           <SectionHeading kicker="Gallery" title="Moments of Joy" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -547,7 +589,9 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-display text-3xl font-black text-white drop-shadow">{item.label}</p>
-                      <p className="mt-2 w-fit rounded-full bg-white px-4 py-2 text-sm font-black text-slate-800">Photo placeholder</p>
+                      <p className="mt-2 max-w-xs rounded-2xl bg-white/92 px-4 py-2 text-sm font-black leading-5 text-slate-800">
+                        {item.caption}
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -557,12 +601,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="section-pad">
         <div className="section-shell">
           <SectionHeading kicker="Testimonials" title="What People Say" />
           <div className="grid gap-5 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <article key={testimonial.name} className="rounded-[1.75rem] border-2 border-[#FFD93D] bg-white p-6 sticker-shadow">
+              <article key={testimonial.name} className="rounded-[1.75rem] border border-[#FFD93D]/70 bg-white p-6 sticker-shadow">
                 <div className="mb-5 flex gap-1 text-[#FFD93D]">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star key={star} size={18} fill="currentColor" />
@@ -576,7 +620,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="invite" className="bg-white py-20">
+      <section id="invite" className="bg-white section-pad">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="mb-3 inline-flex rounded-full bg-[#FFF7E6] px-4 py-2 text-sm font-black text-[#F72525] sticker-shadow">
@@ -601,7 +645,7 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="rounded-[2rem] border-[3px] border-[#F72525] bg-[#FFF7E6] p-5 sticker-shadow sm:p-7">
+          <form className="rounded-[2rem] border border-[#F72525]/25 bg-[#FFF7E6] p-5 sticker-shadow sm:p-7">
             <div className="grid gap-4 sm:grid-cols-2">
               {formFields.map((field) => (
                 <label key={field} className="grid gap-2 text-sm font-black text-slate-700">
@@ -621,18 +665,27 @@ export default function Home() {
               </label>
             </div>
             {/* Connect this form to an API route or server action when backend submission is ready. */}
-            <button
-              type="button"
-              disabled
-              className="mt-5 w-full rounded-full bg-slate-300 px-6 py-4 font-black text-slate-600"
-            >
-              Submit Request Coming Soon
-            </button>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <a
+                href={whatsappUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950"
+              >
+                <Phone size={20} />
+                Confirm on WhatsApp
+              </a>
+              <a
+                href="mailto:hello@unclesunday.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-black text-slate-900 ring-2 ring-slate-900"
+              >
+                <Mail size={20} />
+                Email Details
+              </a>
+            </div>
           </form>
         </div>
       </section>
 
-      <section id="contact" className="bg-[#FFD93D] py-20">
+      <section id="contact" className="bg-[#FFD93D] section-pad">
         <div className="section-shell">
           <div className="grid gap-8 rounded-[2rem] bg-white p-7 sticker-shadow lg:grid-cols-[1.15fr_0.85fr] lg:p-10">
             <div>

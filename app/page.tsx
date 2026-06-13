@@ -680,8 +680,7 @@ export default function Home() {
             title="Follow the Uncle Button Tawau Road Show"
             text="Upcoming Malaysia roadshow highlights from 16-24 June 2026."
           />
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr]">
-            <div className="grid gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
               {roadshowStops.map((stop) => (
                 <article key={`${stop.date}-${stop.title}`} className="flex gap-4 rounded-[1.75rem] border border-[#F72525]/10 bg-[#FFF7E6] p-5 sticker-shadow">
                   <div className={`grid size-16 shrink-0 place-items-center rounded-full border-4 border-white ${stop.color} text-center font-display text-sm font-black leading-tight text-slate-950`}>
@@ -694,24 +693,6 @@ export default function Home() {
                   </div>
                 </article>
               ))}
-            </div>
-            <div className="rounded-[2rem] border border-[#F72525]/20 bg-white p-4 sticker-shadow">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <p className="comic-label rounded-full bg-[#FFD93D] px-4 py-2 font-display text-lg font-black text-[#F72525]">
-                  Full itinerary
-                </p>
-                <a href="#contact" className="rounded-full bg-[#F72525] px-4 py-2 text-sm font-black text-white">
-                  Follow Updates
-                </a>
-              </div>
-              <Image
-                src="/roadshow-schedule.jpg"
-                alt="Uncle Button Tawau Road Show Itinerary Schedule, 16-24 June 2026"
-                width={720}
-                height={1280}
-                className="max-h-[520px] w-full rounded-[1.25rem] object-contain"
-              />
-            </div>
           </div>
         </div>
       </section>

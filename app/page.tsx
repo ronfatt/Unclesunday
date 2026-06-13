@@ -51,6 +51,15 @@ const heroProof = [
   { label: "Global vision", detail: "Cross-cultural vision", icon: Globe2, color: "bg-[#38BDF8]" },
 ];
 
+const heroSlides = [
+  {
+    title: "Jom Bah! Ketawa Bersama",
+    eyebrow: "Featured Roadshow",
+    text: "17 Jun 2026 · Bataras Hypermarket Tawau · 11.00 AM - 1.00 PM",
+    image: "/hero-roadshow-banner.jpg",
+  },
+];
+
 const journeySteps = [
   {
     title: "Plan the Event",
@@ -236,7 +245,7 @@ function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/88 backdrop-blur-xl">
-      <div className="section-shell flex h-20 items-center justify-between">
+      <div className="section-shell flex h-16 items-center justify-between lg:h-20">
         <a href="#home" aria-label="Uncle Sunday home">
           <LogoMark />
         </a>
@@ -306,6 +315,27 @@ function Header() {
   );
 }
 
+function MobileActionBar() {
+  return (
+    <nav className="fixed inset-x-3 bottom-3 z-50 rounded-[1.35rem] border border-white/80 bg-white/92 p-2 shadow-2xl shadow-slate-950/15 backdrop-blur-xl md:hidden" aria-label="Quick actions">
+      <div className="grid grid-cols-3 gap-2">
+        <a href="#roadshow" className="grid place-items-center rounded-2xl bg-[#FFD93D] px-2 py-2 text-center text-[11px] font-black leading-tight text-slate-950">
+          <CalendarHeart size={18} />
+          Roadshow
+        </a>
+        <a href={whatsappUrl} className="grid place-items-center rounded-2xl bg-[#4ADE80] px-2 py-2 text-center text-[11px] font-black leading-tight text-slate-950">
+          <Phone size={18} />
+          WhatsApp
+        </a>
+        <a href="#invite" className="grid place-items-center rounded-2xl bg-[#F72525] px-2 py-2 text-center text-[11px] font-black leading-tight text-white">
+          <Send size={18} />
+          Invite
+        </a>
+      </div>
+    </nav>
+  );
+}
+
 function SectionHeading({ kicker, title, text }: { kicker: string; title: string; text?: string }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -320,30 +350,31 @@ function SectionHeading({ kicker, title, text }: { kicker: string; title: string
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden pb-24 md:pb-0">
       <Header />
+      <MobileActionBar />
 
-      <section id="home" className="relative min-h-screen pt-24">
+      <section id="home" className="relative min-h-screen pt-20 lg:pt-24">
         <div className="absolute inset-0 doodle-grid opacity-70" />
         <div className="absolute -left-28 top-32 size-48 rounded-full bg-[#FFD93D]/55 blur-2xl" />
         <div className="absolute -right-24 top-24 size-48 rounded-full bg-[#FF66B3]/25 blur-2xl" />
-        <div className="rainbow-band absolute inset-x-0 top-20 h-2" />
+        <div className="rainbow-band absolute inset-x-0 top-16 h-2 lg:top-20" />
         <div className="float-doodle absolute left-[7%] top-32 hidden rounded-full bg-white p-3 text-[#F72525] sticker-shadow md:grid" style={{ "--doodle-rotate": "-8deg" } as CSSProperties}>
           <Heart size={18} fill="currentColor" />
         </div>
         <div className="float-doodle-delay absolute right-[8%] top-36 hidden rounded-3xl bg-white p-3 text-[#9B5DE5] sticker-shadow md:grid" style={{ "--doodle-rotate": "10deg" } as CSSProperties}>
           <Sparkles size={20} />
         </div>
-        <div className="section-shell relative grid items-center gap-12 py-8 lg:grid-cols-[1.02fr_0.98fr] lg:py-12">
-          <div>
-            <div className="comic-label mb-6 inline-flex -rotate-1 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black text-[#9B5DE5]">
+        <div className="section-shell relative grid items-center gap-8 py-5 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 lg:py-12">
+          <div className="order-2 lg:order-1">
+            <div className="comic-label mb-4 inline-flex -rotate-1 items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-black text-[#9B5DE5] sm:text-sm lg:mb-6">
               <Sparkles size={18} className="text-[#FFD93D]" />
               Joyful gospel moments for children
             </div>
-            <h1 className="font-display text-5xl font-black leading-[0.96] text-slate-950 sm:text-6xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-display text-4xl font-black leading-[0.96] text-slate-950 sm:text-5xl lg:text-6xl xl:text-7xl">
               Making Every Day a <span className="text-[#F72525]">Happy Sunday</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-xl leading-9 text-slate-700">
+            <p className="mt-4 max-w-2xl text-base font-semibold leading-7 text-slate-700 sm:text-lg lg:mt-5 lg:text-xl lg:leading-9">
               A colorful clown ministry experience with stories, games, laughter, and faith-filled messages for
               churches, schools, families, and international partners.
             </p>
@@ -360,7 +391,7 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-7">
               <a
                 href="#invite"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#a90f0f] bg-[#F72525] px-7 py-4 font-black text-white shadow-xl shadow-red-500/25 transition hover:-translate-y-1"
@@ -376,7 +407,7 @@ export default function Home() {
                 Explore Programs
               </a>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-2 lg:mt-8 lg:gap-3">
               {badges.map((badge) => (
                 <span key={badge} className="rounded-full border border-white bg-white/90 px-4 py-2 text-sm font-black text-slate-700 sticker-shadow">
                   {badge}
@@ -385,49 +416,55 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto grid aspect-square w-full max-w-[520px] place-items-center">
-            <div className="rainbow-arc left-[12%] top-[2%] h-48 w-[76%]" />
-            <div className="absolute inset-5 rounded-full border-[10px] border-[#F72525] bg-[#FFD93D]" />
-            <div className="absolute inset-16 rounded-full bg-[#38BDF8]/35" />
-            <div className="float-doodle absolute left-2 top-10 rounded-3xl bg-white p-4 sticker-shadow red-sticker-border" style={{ "--doodle-rotate": "-12deg" } as CSSProperties}>
+          <div className="order-1 relative mx-auto grid w-full max-w-[620px] place-items-center lg:order-2">
+            <div className="absolute -inset-2 rounded-[1.8rem] bg-[#FFD93D] lg:-inset-5 lg:rounded-[2.4rem]" />
+            <div className="absolute -right-6 -top-6 size-28 rounded-full bg-[#FF66B3]/70 blur-xl" />
+            <div className="absolute -bottom-6 -left-6 size-28 rounded-full bg-[#38BDF8]/60 blur-xl" />
+            <div className="float-doodle absolute -left-2 top-4 z-10 hidden rounded-3xl bg-white p-4 sticker-shadow red-sticker-border sm:grid" style={{ "--doodle-rotate": "-12deg" } as CSSProperties}>
               <Star className="text-[#FFD93D]" fill="#FFD93D" />
             </div>
-            <div className="float-doodle-delay absolute right-5 top-20 rounded-full bg-[#FF66B3] p-4 text-white sticker-shadow" style={{ "--doodle-rotate": "12deg" } as CSSProperties}>
+            <div className="float-doodle-delay absolute -right-2 top-16 z-10 hidden rounded-full bg-[#FF66B3] p-4 text-white sticker-shadow sm:grid" style={{ "--doodle-rotate": "12deg" } as CSSProperties}>
               <Heart fill="currentColor" />
             </div>
-            <div className="absolute left-12 top-[44%] -rotate-6 rounded-full bg-white px-4 py-3 font-display text-2xl font-black text-[#F72525] sticker-shadow">
-              yay!
-            </div>
-            <div className="float-doodle-delay absolute bottom-16 left-0 rounded-3xl bg-[#4ADE80] p-4 text-white sticker-shadow" style={{ "--doodle-rotate": "10deg" } as CSSProperties}>
+            <div className="float-doodle-delay absolute -bottom-2 left-8 z-10 hidden rounded-3xl bg-[#4ADE80] p-4 text-white sticker-shadow sm:grid" style={{ "--doodle-rotate": "10deg" } as CSSProperties}>
               <Rainbow />
             </div>
-            <div className="absolute bottom-28 right-1 rotate-[8deg] rounded-3xl bg-[#9B5DE5] p-4 text-white sticker-shadow">
+            <div className="absolute bottom-10 right-4 z-10 hidden rotate-[8deg] rounded-3xl bg-[#9B5DE5] p-4 text-white sticker-shadow sm:grid">
               <Cloud />
             </div>
-            <div className="absolute bottom-8 right-8 rotate-[-8deg] rounded-full bg-white px-5 py-4 font-display text-3xl font-black text-[#F72525] sticker-shadow">
-              :)
-            </div>
-            <div className="relative w-[78%] rounded-[2rem] border-8 border-white bg-white p-6 text-center sticker-shadow red-sticker-border">
-              <div className="mx-auto mb-5 grid size-44 place-items-center rounded-full border-[6px] border-[#F72525] bg-white ring-8 ring-[#FFF7E6]">
+            <div className="relative w-full overflow-hidden rounded-[1.6rem] border-4 border-white bg-white p-2 sticker-shadow red-sticker-border lg:rounded-[2rem] lg:border-8 lg:p-3">
+              <div className="relative aspect-video overflow-hidden rounded-[1.1rem] bg-[#FFF7E6] lg:rounded-[1.35rem]">
                 <Image
-                  src="/logo.png"
-                  alt="Uncle Sunday Logo"
-                  width={180}
-                  height={180}
+                  src={heroSlides[0].image}
+                  alt="Jom Bah Ketawa Bersama roadshow banner featuring Uncle Sunday and performers"
+                  fill
                   priority
-                  className="rounded-full object-contain"
+                  sizes="(min-width: 1024px) 620px, 100vw"
+                  className="object-cover"
                 />
+                <div className="absolute left-2 top-2 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-[#F72525] shadow-lg sm:left-3 sm:top-3 sm:px-4 sm:py-2 sm:text-xs">
+                  {heroSlides[0].eyebrow}
+                </div>
               </div>
-              <h2 className="font-display text-4xl font-black text-slate-950">Uncle Sunday</h2>
-              <p className="mt-2 rounded-full bg-[#FFF7E6] px-4 py-2 text-sm font-black text-[#9B5DE5]">
-                Joyful creative ministry
-              </p>
-              <div className="mt-4 grid grid-cols-3 gap-2 text-xs font-black text-slate-700">
-                <span className="rounded-full bg-[#FFD93D] px-2 py-2">Fun</span>
-                <span className="rounded-full bg-[#4ADE80] px-2 py-2">Safe</span>
-                <span className="rounded-full bg-[#38BDF8] px-2 py-2">Global</span>
+              <div className="grid gap-3 px-2 py-3 sm:grid-cols-[1fr_auto] sm:items-center lg:gap-4 lg:py-4">
+                <div>
+                  <h2 className="font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl lg:text-3xl">
+                    {heroSlides[0].title}
+                  </h2>
+                  <p className="mt-1 text-sm font-extrabold text-slate-600">{heroSlides[0].text}</p>
+                </div>
+                <a
+                  href="#roadshow"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F72525] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-500/20"
+                >
+                  View Roadshow
+                </a>
               </div>
-              <div className="rainbow-divider mt-6" />
+              <div className="flex items-center justify-center gap-2 pb-1">
+                <span className="size-2.5 rounded-full bg-[#F72525]" />
+                <span className="size-2.5 rounded-full bg-slate-200" />
+                <span className="size-2.5 rounded-full bg-slate-200" />
+              </div>
             </div>
           </div>
         </div>

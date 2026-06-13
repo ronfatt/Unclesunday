@@ -17,7 +17,6 @@ import {
   Menu,
   MessageCircle,
   Mic2,
-  Music2,
   PartyPopper,
   Rainbow,
   School,
@@ -36,6 +35,7 @@ const navItems = [
   { href: "#about", label: "About" },
   { href: "#programs", label: "Programs" },
   { href: "#roadshow", label: "Roadshow" },
+  { href: "#updates", label: "Updates" },
   { href: "#impact", label: "Impact" },
   { href: "#gallery", label: "Gallery" },
   { href: "#invite", label: "Invite" },
@@ -45,10 +45,10 @@ const navItems = [
 const badges = ["Churches", "Schools", "Kids Camps", "Sunday School", "Family Days"];
 
 const heroProof = [
-  { label: "Fun", detail: "Joyful stage energy", icon: Smile, color: "bg-[#FFD93D]" },
-  { label: "Safe & meaningful", detail: "Faith and character", icon: ShieldCheck, color: "bg-[#4ADE80]" },
-  { label: "Invite-ready", detail: "Churches and schools", icon: HandHeart, color: "bg-[#F72525]" },
-  { label: "Global vision", detail: "Cross-cultural vision", icon: Globe2, color: "bg-[#38BDF8]" },
+  { label: "Fun", icon: Smile, color: "bg-[#FFD93D]" },
+  { label: "Safe", icon: ShieldCheck, color: "bg-[#4ADE80]" },
+  { label: "Invite-ready", icon: HandHeart, color: "bg-[#F72525]" },
+  { label: "Global", icon: Globe2, color: "bg-[#38BDF8]" },
 ];
 
 const heroSlides = [
@@ -84,19 +84,19 @@ const journeySteps = [
 const features = [
   {
     title: "Joyful Ministry",
-    description: "Creating safe, happy, and meaningful moments where children can learn, laugh, and grow.",
+    description: "Safe, happy moments where children laugh, learn, and grow.",
     icon: Heart,
     color: "bg-[#FF66B3]",
   },
   {
     title: "Faith-Based Storytelling",
-    description: "Bringing Bible stories and values to life through creative interaction and memorable experiences.",
+    description: "Bible values brought to life through play, story, and interaction.",
     icon: BookHeart,
     color: "bg-[#9B5DE5]",
   },
   {
     title: "International Vision",
-    description: "Serving churches, schools, and communities with programs that can connect across cultures.",
+    description: "Programs shaped for churches, schools, and cross-cultural events.",
     icon: Globe2,
     color: "bg-[#38BDF8]",
   },
@@ -106,39 +106,39 @@ const programs = [
   {
     title: "Kids Camps",
     description:
-      "Themed children's camps with Bible stories, group games, stage moments, worship, creative characters, and team activities.",
+      "Bible stories, games, worship, stage moments, and team activities.",
     icon: Baby,
     accent: "#FFD93D",
   },
   {
     title: "Church Children's Events",
-    description: "Special children's services, Sunday School events, holiday programs, family days, and church celebrations.",
+    description: "Children's services, Sunday School events, family days, and celebrations.",
     icon: Church,
     accent: "#F72525",
   },
   {
     title: "School & Community Programs",
     description:
-      "Positive value-based programs for schools and communities, focusing on joy, character, teamwork, kindness, and confidence.",
+      "Value-based programs for joy, character, teamwork, kindness, and confidence.",
     icon: School,
     accent: "#4ADE80",
   },
   {
     title: "Creative Gospel Shows",
-    description: "Fun, interactive, faith-filled shows using storytelling, comedy, music, movement, and visual engagement.",
+    description: "Interactive gospel shows with comedy, music, movement, and visuals.",
     icon: Mic2,
     accent: "#9B5DE5",
   },
   {
     title: "Teacher & Volunteer Training",
     description:
-      "Practical training for children's workers, teachers, volunteers, and youth leaders in creative children's ministry.",
+      "Practical tools for teachers, volunteers, and children's ministry teams.",
     icon: Users,
     accent: "#38BDF8",
   },
   {
     title: "Family Events",
-    description: "Joyful programs that bring children, parents, and communities together through fun and meaningful interaction.",
+    description: "Warm programs for children, parents, and community celebrations.",
     icon: CalendarHeart,
     accent: "#FF66B3",
   },
@@ -183,12 +183,48 @@ const stats = [
 ];
 
 const gallery = [
-  { label: "Kids Camp", caption: "Theme days, games, and faith-filled group moments.", colors: "from-[#FFD93D] via-[#FF66B3] to-[#F72525]", icon: Rainbow },
-  { label: "Stage Interaction", caption: "Big reactions, clear messages, and guided participation.", colors: "from-[#38BDF8] via-[#9B5DE5] to-[#FF66B3]", icon: Mic2 },
-  { label: "Creative Show", caption: "Comedy, music, stories, movement, and visual surprises.", colors: "from-[#4ADE80] via-[#FFD93D] to-[#38BDF8]", icon: Sparkles },
-  { label: "Team Activity", caption: "Children learn kindness, confidence, and teamwork together.", colors: "from-[#F72525] via-[#FFD93D] to-[#4ADE80]", icon: Users },
-  { label: "Family Day", caption: "Warm programs that parents and children can enjoy together.", colors: "from-[#FF66B3] via-[#FFD93D] to-[#38BDF8]", icon: Heart },
-  { label: "Children's Worship", caption: "Joyful worship spaces that feel meaningful and child-friendly.", colors: "from-[#9B5DE5] via-[#38BDF8] to-[#4ADE80]", icon: Music2 },
+  { label: "Roadshow Energy", caption: "A colorful public event ready for families.", image: "/hero-roadshow-banner.jpg", icon: Rainbow },
+  { label: "School Visit", caption: "Programs prepared for school settings.", image: "/photos/school-location.webp", icon: School },
+  { label: "Professional Setup", caption: "Behind-the-scenes care before the event.", image: "/photos/production.webp", icon: Sparkles },
+  { label: "Media Ready", caption: "Clean content for event promotion and recaps.", image: "/photos/pro-video.webp", icon: Mic2 },
+  { label: "Church Team", caption: "Serving churches and ministry partners.", image: "/photos/church-team.webp", icon: Church },
+  { label: "Creative Backstage", caption: "Props, planning, and joyful preparation.", image: "/photos/backstage.webp", icon: PartyPopper },
+];
+
+const photoStories = [
+  {
+    title: "School Ready",
+    tag: "Safe venue",
+    image: "/photos/school-location.webp",
+  },
+  {
+    title: "Professionally Produced",
+    tag: "Media ready",
+    image: "/photos/pro-video.webp",
+  },
+  {
+    title: "Ministry Team",
+    tag: "Invite ready",
+    image: "/photos/church-team.webp",
+  },
+];
+
+const latestActivities = [
+  {
+    title: "Jom Bah! Ketawa Bersama",
+    meta: "17 Jun 2026 · Bataras Hypermarket Tawau",
+    text: "Meet the clowns, magicians, and creative performers.",
+  },
+  {
+    title: "Uncle Button Tawau Road Show",
+    meta: "16-24 Jun 2026 · Sabah",
+    text: "Fans can follow roadshow stops, school visits, and family moments.",
+  },
+  {
+    title: "School & Church Programs",
+    meta: "Open for invitations",
+    text: "For kids camps, Sunday School, family days, and ministry events.",
+  },
 ];
 
 const testimonials = [
@@ -219,6 +255,10 @@ const formFields = [
 const whatsappMessage =
   "Hi Uncle Sunday, I would like to know more about inviting Uncle Sunday for an event.";
 const whatsappUrl = `https://wa.me/601110589679?text=${encodeURIComponent(whatsappMessage)}`;
+const facebookPageUrl = "https://www.facebook.com/share/1JW8nu7UnX/";
+const facebookEmbedUrl = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
+  facebookPageUrl,
+)}&tabs=timeline&width=420&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
 
 function LogoMark({ inverted = false }: { inverted?: boolean }) {
   return (
@@ -425,8 +465,8 @@ export default function Home() {
               Making Every Day a <span className="text-[#F72525]">Happy Sunday</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base font-semibold leading-7 text-slate-700 sm:text-lg lg:mt-5 lg:text-xl lg:leading-9">
-              A colorful clown ministry experience with stories, games, laughter, and faith-filled messages for
-              churches, schools, families, and international partners.
+              Colorful clown ministry, joyful gospel shows, kids camps, and roadshows for churches, schools, families,
+              and international partners.
             </p>
             <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {heroProof.map((item) => {
@@ -529,8 +569,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative -mt-10 pb-14">
+      <section className="relative -mt-6 pb-10 lg:-mt-10 lg:pb-14">
         <div className="section-shell">
+          <div className="mb-5 grid gap-3 sm:grid-cols-3">
+            {photoStories.map((story, index) => (
+              <article
+                key={story.title}
+                className={`relative min-h-[13rem] overflow-hidden rounded-[1.75rem] border-[5px] border-white bg-slate-900 sticker-shadow ${
+                  index === 1 ? "sm:-translate-y-4" : ""
+                }`}
+              >
+                <Image
+                  src={story.image}
+                  alt={`${story.title} photo`}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/76 via-slate-950/12 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                  <p className="mb-2 inline-flex rounded-full bg-[#FFD93D] px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-slate-950">
+                    {story.tag}
+                  </p>
+                  <h2 className="font-display text-2xl font-black leading-none">{story.title}</h2>
+                </div>
+              </article>
+            ))}
+          </div>
           <div className="soft-card grid gap-4 rounded-[2rem] p-4 md:grid-cols-3 md:p-5">
             {journeySteps.map((step) => {
               const Icon = step.icon;
@@ -556,7 +621,7 @@ export default function Home() {
           <SectionHeading
             kicker="About"
             title="Who Is Uncle Sunday?"
-            text="Uncle Sunday is a joyful children's ministry personality dedicated to reaching the next generation through creativity, storytelling, laughter, music, games, and faith-based messages. Through interactive programs and meaningful experiences, Uncle Sunday helps children discover joy, hope, character, and God's love."
+            text="A joyful children's ministry brand bringing creativity, laughter, stories, games, and faith-filled moments to children and families."
           />
           <div className="grid gap-5 md:grid-cols-3">
             {features.map((feature) => {
@@ -613,7 +678,7 @@ export default function Home() {
           <SectionHeading
             kicker="Roadshow"
             title="Follow the Uncle Button Tawau Road Show"
-            text="Upcoming Malaysia roadshow highlights from 16-24 June 2026. Fans can follow public stops, school programs, Sunday service, and family-friendly moments as the team moves through Tawau."
+            text="Upcoming Malaysia roadshow highlights from 16-24 June 2026."
           />
           <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr]">
             <div className="grid gap-4">
@@ -651,12 +716,60 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="updates" className="relative section-pad">
+        <div className="absolute left-4 top-14 hidden rounded-full bg-[#4ADE80] p-3 text-slate-950 sticker-shadow lg:block">
+          <Sparkles size={24} />
+        </div>
+        <div className="section-shell">
+          <SectionHeading
+            kicker="Latest"
+            title="See the Latest Activities"
+            text="Follow roadshow posts, event photos, and fresh announcements from Uncle Sunday."
+          />
+          <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="grid gap-4">
+              {latestActivities.map((activity) => (
+                <article key={activity.title} className="rounded-[1.5rem] border border-white bg-white p-5 sticker-shadow">
+                  <p className="text-sm font-black text-[#F72525]">{activity.meta}</p>
+                  <h3 className="mt-2 font-display text-2xl font-black leading-tight text-slate-950">{activity.title}</h3>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{activity.text}</p>
+                </article>
+              ))}
+              <a
+                href={facebookPageUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1877F2] px-6 py-4 font-black text-white shadow-xl shadow-blue-500/20"
+              >
+                <ExternalLink size={20} />
+                Open Facebook Page
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-[2rem] border-[5px] border-white bg-white p-2 sticker-shadow">
+              <div className="mb-2 flex items-center justify-between rounded-[1.35rem] bg-[#FFF7E6] px-4 py-3">
+                <p className="font-display text-xl font-black text-slate-950">Facebook Latest Posts</p>
+                <span className="rounded-full bg-[#FFD93D] px-3 py-1 text-xs font-black text-[#F72525]">Live</span>
+              </div>
+              <iframe
+                title="Uncle Sunday Facebook latest posts"
+                src={facebookEmbedUrl}
+                width="100%"
+                height="560"
+                className="block min-h-[28rem] w-full rounded-[1.35rem] border-0"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="impact" className="bg-[#1E293B] section-pad text-white">
         <div className="section-shell">
           <SectionHeading
             kicker="Impact"
             title="Joy That Reaches Hearts"
-            text="Every smile matters. Every child matters. Every program is designed to plant seeds of faith, hope, joy, and strong character."
+            text="Every smile matters. Every child matters."
           />
           <div className="rainbow-divider mb-8" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -672,18 +785,25 @@ export default function Home() {
 
       <section id="gallery" className="bg-white section-pad">
         <div className="section-shell">
-          <SectionHeading kicker="Gallery" title="Moments of Joy" />
+          <SectionHeading kicker="Gallery" title="Real Moments, Real Ministry" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.map((item) => {
               const Icon = item.icon;
               return (
-                <article key={item.label} className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border-[5px] border-white bg-gradient-to-br ${item.colors} p-5 sticker-shadow`}>
-                  <div className="absolute inset-0 doodle-grid opacity-35" />
+                <article key={item.label} className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border-[5px] border-white bg-slate-900 sticker-shadow">
+                  <Image
+                    src={item.image}
+                    alt={`${item.label} photo`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/78 via-slate-950/12 to-transparent" />
                   <div className="relative flex h-full flex-col justify-between">
-                    <div className="grid size-16 place-items-center rounded-full bg-white/90 text-slate-900">
+                    <div className="m-4 grid size-14 place-items-center rounded-full bg-white/90 text-slate-900">
                       <Icon size={34} />
                     </div>
-                    <div>
+                    <div className="p-4">
                       <p className="font-display text-3xl font-black text-white drop-shadow">{item.label}</p>
                       <p className="mt-2 max-w-xs rounded-2xl bg-white/92 px-4 py-2 text-sm font-black leading-5 text-slate-800">
                         {item.caption}
@@ -726,8 +846,7 @@ export default function Home() {
               Invite Uncle Sunday to Your Church, School or Community
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-700">
-              Planning a children's camp, church event, school program, family day, or creative gospel show? Let's
-              create a joyful and meaningful experience together.
+              Planning a children's camp, church event, school program, family day, or creative gospel show?
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F72525] px-6 py-4 font-black text-white">
@@ -772,7 +891,7 @@ export default function Home() {
                 Confirm on WhatsApp
               </a>
               <a
-                href="mailto:hello@unclesunday.com"
+                href="mailto:hello@unclesunday.fun"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-black text-slate-900 ring-2 ring-slate-900"
               >
                 <Mail size={20} />
@@ -794,22 +913,21 @@ export default function Home() {
                 Let's Make Every Day a Happy Sunday
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-700">
-                Reach out for invitations, partnerships, children's ministry programs, training, and international
-                collaboration.
+                Reach out for invitations, partnerships, programs, training, and international collaboration.
               </p>
             </div>
             <div className="grid content-center gap-4">
-              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="mailto:hello@unclesunday.com">
+              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="mailto:hello@unclesunday.fun">
                 <Mail className="text-[#F72525]" />
-                hello@unclesunday.com
+                hello@unclesunday.fun
               </a>
               <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href={whatsappUrl} target="_blank" rel="noreferrer">
                 <MessageCircle className="text-[#4ADE80]" />
                 +60 11-1058 9679
               </a>
-              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="https://www.facebook.com/unclesunday" target="_blank" rel="noreferrer">
+              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href={facebookPageUrl} target="_blank" rel="noreferrer">
                 <ExternalLink className="text-[#9B5DE5]" />
-                facebook.com/unclesunday
+                Facebook Page
               </a>
               <div className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800">
                 <MapPin className="text-[#38BDF8]" />

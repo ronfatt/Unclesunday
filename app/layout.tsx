@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://unclesunday.com";
+const siteUrl = "https://www.unclesunday.fun";
 const siteTitle = "Uncle Sunday | Joyful Children's Ministry & Roadshow Programs";
 const siteDescription =
   "Uncle Sunday brings colorful clown ministry, joyful gospel shows, kids camps, school programs, family events, and faith-filled children's experiences for churches, schools, and communities.";
@@ -115,7 +115,7 @@ const structuredData = {
   image: `${siteUrl}/hero-roadshow-banner.jpg`,
   description: siteDescription,
   slogan: "Making Everyday A Happy Sunday",
-  sameAs: ["https://www.facebook.com/unclesunday"],
+  sameAs: ["https://www.facebook.com/share/1JW8nu7UnX/"],
   contactPoint: [
     {
       "@type": "ContactPoint",

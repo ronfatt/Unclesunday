@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --sunshine: #ffd93d;
+  --joy-red: #f72525;
+  --candy-pink: #ff66b3;
+  --sky-blue: #38bdf8;
+  --purple: #9b5de5;
+  --green: #4ade80;
+  --cream: #fff7e6;
+  --navy: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--navy);
+  background:
+    radial-gradient(circle at top left, rgba(255, 217, 61, 0.34), transparent 34rem),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.24), transparent 32rem),
+    linear-gradient(180deg, #fff7e6 0%, #ffffff 45%, #fff7e6 100%);
+  font-family: "Nunito", "Trebuchet MS", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 12% 22%, rgba(247, 37, 37, 0.09) 0 0.5rem, transparent 0.55rem),
+    radial-gradient(circle at 86% 18%, rgba(155, 93, 229, 0.1) 0 0.75rem, transparent 0.8rem),
+    radial-gradient(circle at 78% 72%, rgba(255, 102, 179, 0.11) 0 0.6rem, transparent 0.65rem);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--sunshine);
+  color: var(--navy);
+}
+
+.font-display {
+  font-family: "Baloo 2", "Fredoka", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.sticker-shadow {
+  box-shadow: 0 18px 45px rgba(30, 41, 59, 0.13);
+}
+
+.red-sticker-border {
+  border: 3px solid var(--joy-red);
+  box-shadow: 0 10px 0 rgba(247, 37, 37, 0.13), 0 22px 55px rgba(30, 41, 59, 0.14);
+}
+
+.comic-label {
+  border: 2px solid rgba(30, 41, 59, 0.88);
+  box-shadow: 5px 5px 0 rgba(30, 41, 59, 0.12);
+}
+
+.rainbow-divider {
+  height: 12px;
+  background: linear-gradient(90deg, #f72525, #ffd93d, #4ade80, #38bdf8, #9b5de5, #ff66b3);
+  border-radius: 999px;
+}
+
+.rainbow-band {
+  background: linear-gradient(90deg, #f72525, #ffd93d, #4ade80, #38bdf8, #9b5de5, #ff66b3);
+}
+
+.rainbow-arc {
+  position: absolute;
+  border-radius: 999px 999px 0 0;
+  background: conic-gradient(from 270deg, #f72525, #ffd93d, #4ade80, #38bdf8, #9b5de5, #ff66b3, #f72525);
+  clip-path: polygon(0 0, 100% 0, 100% 58%, 0 58%);
+}
+
+.rainbow-arc::after {
+  position: absolute;
+  inset: 20%;
+  content: "";
+  border-radius: inherit;
+  background: var(--cream);
+}
+
+.doodle-grid {
+  background-image:
+    radial-gradient(circle, rgba(247, 37, 37, 0.18) 1px, transparent 1px),
+    radial-gradient(circle, rgba(56, 189, 248, 0.18) 1px, transparent 1px);
+  background-position:
+    0 0,
+    14px 14px;
+  background-size: 28px 28px;
+}
+
+.float-doodle {
+  animation: float-doodle 6s ease-in-out infinite;
+}
+
+.float-doodle-delay {
+  animation: float-doodle 7s ease-in-out 1.2s infinite;
+}
+
+.spin-soft {
+  animation: spin-soft 18s linear infinite;
+}
+
+@keyframes float-doodle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--doodle-rotate, 0deg));
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(calc(var(--doodle-rotate, 0deg) + 4deg));
+  }
+}
+
+@keyframes spin-soft {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-doodle,
+  .float-doodle-delay,
+  .spin-soft {
+    animation: none;
+  }
+}

@@ -8,6 +8,7 @@ import {
   CalendarHeart,
   Church,
   Cloud,
+  ExternalLink,
   Globe2,
   HandHeart,
   Heart,
@@ -34,6 +35,7 @@ const navItems = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#programs", label: "Programs" },
+  { href: "#roadshow", label: "Roadshow" },
   { href: "#impact", label: "Impact" },
   { href: "#gallery", label: "Gallery" },
   { href: "#invite", label: "Invite Us" },
@@ -112,6 +114,37 @@ const programs = [
   },
 ];
 
+const roadshowStops = [
+  {
+    date: "17 Jun 2026",
+    time: "11:00 AM - 1:00 PM",
+    title: "Bataras Roadshow",
+    detail: "Local clowns, magic moments, and public roadshow energy.",
+    color: "bg-[#FFD93D]",
+  },
+  {
+    date: "21 Jun 2026",
+    time: "9:00 AM",
+    title: "Father's Day Sunday Service",
+    detail: "A meaningful Sunday gathering with family-friendly joy.",
+    color: "bg-[#4ADE80]",
+  },
+  {
+    date: "21 Jun 2026",
+    time: "3:30 PM",
+    title: "Tawau Hills Park",
+    detail: "Roadshow stop with Sam Tee, Donny, and the travelling team.",
+    color: "bg-[#38BDF8]",
+  },
+  {
+    date: "23 Jun 2026",
+    time: "10:30 AM - 11:30 AM",
+    title: "SK Kalabakan Primary School",
+    detail: "School program for children and the local community.",
+    color: "bg-[#FF66B3]",
+  },
+];
+
 const stats = [
   { value: "20+", label: "Years of Joyful Ministry" },
   { value: "100+", label: "Events & Programs" },
@@ -152,6 +185,8 @@ const formFields = [
   "Number of Children",
   "Email / WhatsApp",
 ];
+
+const whatsappUrl = "https://wa.me/601110589679";
 
 function LogoMark({ inverted = false }: { inverted?: boolean }) {
   return (
@@ -434,6 +469,50 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="roadshow" className="relative bg-white py-20">
+        <div className="rainbow-band absolute inset-x-0 top-0 h-2" />
+        <div className="section-shell">
+          <SectionHeading
+            kicker="Roadshow"
+            title="Follow the Uncle Button Tawau Road Show"
+            text="Upcoming Malaysia roadshow highlights from 16-24 June 2026. Fans can follow the public stops, school program, Sunday service, and family-friendly moments as the team moves through Tawau."
+          />
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+            <div className="grid gap-4">
+              {roadshowStops.map((stop) => (
+                <article key={`${stop.date}-${stop.title}`} className="flex gap-4 rounded-[1.75rem] border-2 border-[#F72525]/15 bg-[#FFF7E6] p-5 sticker-shadow">
+                  <div className={`grid size-16 shrink-0 place-items-center rounded-full border-4 border-white ${stop.color} text-center font-display text-sm font-black leading-tight text-slate-950`}>
+                    <CalendarHeart size={24} />
+                  </div>
+                  <div>
+                    <p className="font-black text-[#F72525]">{stop.date} · {stop.time}</p>
+                    <h3 className="font-display text-2xl font-black text-slate-950">{stop.title}</h3>
+                    <p className="mt-2 leading-7 text-slate-700">{stop.detail}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="rounded-[2rem] border-[3px] border-[#F72525] bg-white p-4 sticker-shadow">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <p className="comic-label rounded-full bg-[#FFD93D] px-4 py-2 font-display text-lg font-black text-[#F72525]">
+                  Full itinerary
+                </p>
+                <a href="#contact" className="rounded-full bg-[#F72525] px-4 py-2 text-sm font-black text-white">
+                  Follow Updates
+                </a>
+              </div>
+              <Image
+                src="/roadshow-schedule.jpg"
+                alt="Uncle Button Tawau Road Show Itinerary Schedule, 16-24 June 2026"
+                width={720}
+                height={1280}
+                className="max-h-[520px] w-full rounded-[1.25rem] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="impact" className="bg-[#1E293B] py-20 text-white">
         <div className="section-shell">
           <SectionHeading
@@ -515,7 +594,7 @@ export default function Home() {
                 <Send size={20} />
                 Send Invitation Request
               </a>
-              <a href="https://wa.me/" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950">
+              <a href={whatsappUrl} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950">
                 <Phone size={20} />
                 WhatsApp Us
               </a>
@@ -573,13 +652,17 @@ export default function Home() {
                 <Mail className="text-[#F72525]" />
                 hello@unclesunday.com
               </a>
-              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="https://wa.me/">
+              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href={whatsappUrl}>
                 <Phone className="text-[#4ADE80]" />
-                +60 XX-XXX XXXX
+                +60 11-1058 9679
+              </a>
+              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="https://www.facebook.com/unclesunday" target="_blank" rel="noreferrer">
+                <ExternalLink className="text-[#9B5DE5]" />
+                facebook.com/unclesunday
               </a>
               <div className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800">
                 <MapPin className="text-[#38BDF8]" />
-                Available for local and international invitations
+                Based in Tawau, available for local and international invitations
               </div>
             </div>
           </div>

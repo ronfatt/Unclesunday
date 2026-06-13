@@ -15,10 +15,10 @@ import {
   Mail,
   MapPin,
   Menu,
+  MessageCircle,
   Mic2,
   Music2,
   PartyPopper,
-  Phone,
   Rainbow,
   School,
   Send,
@@ -216,7 +216,9 @@ const formFields = [
   "Email / WhatsApp",
 ];
 
-const whatsappUrl = "https://wa.me/601110589679";
+const whatsappMessage =
+  "Hi Uncle Sunday, I would like to know more about inviting Uncle Sunday for an event.";
+const whatsappUrl = `https://wa.me/601110589679?text=${encodeURIComponent(whatsappMessage)}`;
 
 function LogoMark({ inverted = false }: { inverted?: boolean }) {
   return (
@@ -267,6 +269,14 @@ function Header() {
             EN / 中文 / BM
           </div>
           <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex whitespace-nowrap rounded-full bg-[#4ADE80] px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-green-500/20 transition hover:-translate-y-0.5 hover:bg-[#35c768]"
+          >
+            WhatsApp
+          </a>
+          <a
             href="#invite"
             className="whitespace-nowrap rounded-full bg-[#F72525] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-500/20 transition hover:-translate-y-0.5 hover:bg-[#dc1d1d]"
           >
@@ -299,6 +309,15 @@ function Header() {
               </a>
             ))}
             <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="rounded-2xl bg-[#4ADE80] px-4 py-3 text-center font-black text-slate-950"
+            >
+              WhatsApp Uncle Sunday
+            </a>
+            <a
               href="#invite"
               onClick={() => setOpen(false)}
               className="rounded-2xl bg-[#F72525] px-4 py-3 text-center font-black text-white"
@@ -317,15 +336,25 @@ function Header() {
 
 function MobileActionBar() {
   return (
-    <nav className="fixed inset-x-3 bottom-3 z-50 rounded-[1.35rem] border border-white/80 bg-white/92 p-2 shadow-2xl shadow-slate-950/15 backdrop-blur-xl md:hidden" aria-label="Quick actions">
-      <div className="grid grid-cols-3 gap-2">
+    <nav className="fixed inset-x-3 bottom-3 z-50 rounded-[1.5rem] border border-white/80 bg-white/92 p-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] shadow-2xl shadow-slate-950/15 backdrop-blur-xl md:hidden" aria-label="Quick actions">
+      <div className="grid grid-cols-[0.82fr_1.36fr_0.82fr] items-center gap-2">
         <a href="#roadshow" className="grid place-items-center rounded-2xl bg-[#FFD93D] px-2 py-2 text-center text-[11px] font-black leading-tight text-slate-950">
           <CalendarHeart size={18} />
           Roadshow
         </a>
-        <a href={whatsappUrl} className="grid place-items-center rounded-2xl bg-[#4ADE80] px-2 py-2 text-center text-[11px] font-black leading-tight text-slate-950">
-          <Phone size={18} />
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="relative -mt-5 grid min-h-[4.25rem] place-items-center rounded-[1.35rem] border-4 border-white bg-[#4ADE80] px-2 py-2 text-center text-[11px] font-black leading-tight text-slate-950 shadow-xl shadow-green-500/25"
+          aria-label="Contact Uncle Sunday on WhatsApp"
+        >
+          <span className="absolute -top-3 rounded-full bg-[#F72525] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.08em] text-white">
+            Fast Contact
+          </span>
+          <MessageCircle size={22} />
           WhatsApp
+          <span className="text-[9px] font-extrabold leading-none text-slate-700">+60 11-1058 9679</span>
         </a>
         <a href="#invite" className="grid place-items-center rounded-2xl bg-[#F72525] px-2 py-2 text-center text-[11px] font-black leading-tight text-white">
           <Send size={18} />
@@ -333,6 +362,26 @@ function MobileActionBar() {
         </a>
       </div>
     </nav>
+  );
+}
+
+function FloatingWhatsAppButton() {
+  return (
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="fixed bottom-6 right-6 z-50 hidden items-center gap-3 rounded-full border-4 border-white bg-[#4ADE80] px-5 py-3 font-black text-slate-950 shadow-2xl shadow-green-500/25 transition hover:-translate-y-1 md:inline-flex"
+      aria-label="Contact Uncle Sunday on WhatsApp"
+    >
+      <span className="grid size-10 place-items-center rounded-full bg-white text-[#16A34A]">
+        <MessageCircle size={22} />
+      </span>
+      <span className="grid leading-tight">
+        <span>WhatsApp Uncle Sunday</span>
+        <span className="text-xs text-slate-700">+60 11-1058 9679</span>
+      </span>
+    </a>
   );
 }
 
@@ -353,6 +402,7 @@ export default function Home() {
     <main className="overflow-hidden pb-24 md:pb-0">
       <Header />
       <MobileActionBar />
+      <FloatingWhatsAppButton />
 
       <section id="home" className="relative min-h-screen pt-20 lg:pt-24">
         <div className="absolute inset-0 doodle-grid opacity-70" />
@@ -391,13 +441,22 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-7">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:mt-7">
               <a
                 href="#invite"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#a90f0f] bg-[#F72525] px-7 py-4 font-black text-white shadow-xl shadow-red-500/25 transition hover:-translate-y-1"
               >
                 <Send size={20} />
                 Invite Uncle Sunday
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#169447] bg-[#4ADE80] px-7 py-4 font-black text-slate-950 shadow-xl shadow-green-500/20 transition hover:-translate-y-1"
+              >
+                <MessageCircle size={20} />
+                WhatsApp Booking
               </a>
               <a
                 href="#programs"
@@ -675,8 +734,8 @@ export default function Home() {
                 <Send size={20} />
                 Send Invitation Request
               </a>
-              <a href={whatsappUrl} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950">
-                <Phone size={20} />
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950">
+                <MessageCircle size={20} />
                 WhatsApp Us
               </a>
             </div>
@@ -705,9 +764,11 @@ export default function Home() {
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               <a
                 href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4ADE80] px-6 py-4 font-black text-slate-950"
               >
-                <Phone size={20} />
+                <MessageCircle size={20} />
                 Confirm on WhatsApp
               </a>
               <a
@@ -742,8 +803,8 @@ export default function Home() {
                 <Mail className="text-[#F72525]" />
                 hello@unclesunday.com
               </a>
-              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href={whatsappUrl}>
-                <Phone className="text-[#4ADE80]" />
+              <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href={whatsappUrl} target="_blank" rel="noreferrer">
+                <MessageCircle className="text-[#4ADE80]" />
                 +60 11-1058 9679
               </a>
               <a className="flex items-center gap-3 rounded-2xl bg-[#FFF7E6] p-4 font-black text-slate-800" href="https://www.facebook.com/unclesunday" target="_blank" rel="noreferrer">

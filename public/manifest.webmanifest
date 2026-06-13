@@ -1,0 +1,23 @@
+{
+  "name": "Uncle Sunday",
+  "short_name": "Uncle Sunday",
+  "description": "Joyful children's ministry, gospel shows, kids camps, roadshows, and family-friendly events.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF7E6",
+  "theme_color": "#F72525",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
